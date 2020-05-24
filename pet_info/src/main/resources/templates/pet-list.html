@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>pet-list</title>
+    <base th:href="${#request.getContextPath()}+'/'">
+</head>
+<body>
+<table  width="80%" border="1px solid" cellspacing="0">
+    <tr>
+        <th>Id</th>
+        <th>名称</th>
+        <th>类型</th>
+        <th>年龄</th>
+        <th>注册号</th>
+        <th>图片</th>
+    </tr>
+    <tr th:each="pet:${pets}" style="text-align: center">
+        <td th:text="${pet.petId}"></td>
+        <td th:text="${pet.petName}"></td>
+        <td th:text="${pet.petType}"></td>
+        <td th:text="${pet.petAge}"></td>
+        <td th:text="${pet.petNumber}"></td>
+        <td width="60px">
+            <img th:src="'img/'+${pet.petImg}" style="width: 100px" height="60px">
+        </td>
+    </tr>
+</table>
+<a href="http://www.localhost:8080/user/register.html">添加宠物</a>
+<script src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

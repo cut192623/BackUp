@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>汽车商店系统</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <style type="text/css">
+        button{
+
+            background-color: lightblue;
+            width: 80px;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <table width="400px" height="500px" border="0">
+        <tr v-for="car in cars">
+            <td><img v-bind:src="['images/'+car.carImg]" width="150px"></td>
+            <td>
+                <p>品牌：{{car.carBrand}}</p>
+                <p>价格：{{car.carPrice}}</p>
+                <p>库存：{{car.carNum}}</p>
+                <button  v-on:click="putCar(car)" >更新</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    //创建Vue对象
+    var vue = new Vue({
+        el: "#content",
+        data: {
+            cars: {},
+            car: {}
+        },
+        methods: {
+            putCar:function(car){
+                if(car.carNum>0){
+                    car.carNum--;
+                    axios.put("http://localhost:8080/list",car)
+                        .then(value=>{
+                            if (value.data.msg==="success"){
+                                alert("购买成功");
+                                this.loadUsers();
+                            }
+                        });
+                }
+                else{
+
+                    alert("库存不足")
+                }
+
+            },
+
+            loadUsers:function(){
+                axios.get("http://localhost:8080/list")
+                    .then(value=>{
+                        this.cars=value.data.data;
+                    });
+            },
+        },
+        mounted(){
+            this.loadUsers();
+        }
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置接口的映射 namespace命名空间设置为包名+接口名-->
+<mapper namespace="test.dao.InfoMapper">
+<!--    配置启动对该接口查询数据的缓存-->
+    <cache/>
+    <resultMap id="infoMap" type="test.entity.Info">
+        <id property="name" column="name" javaType="java.lang.String" />
+        <result property="age" column="age" />
+        <result property="sex" column="sex"/>
+        <collection property="orders"
+                    ofType="test.entity.OrderInfo"
+                    javaType="java.util.ArrayList"
+                    column="name">
+            <id property="orderId" column="order_id" javaType="java.lang.Long" />
+            <result property="orderBookId" column="order_book_id" />
+            <result property="orderTime" column="order_time"/>
+            <result property="orderNum" column="order_num"/>
+            <result property="name" column="name" />
+        </collection>
+    </resultMap>
+<!--    配置add方法的sql语句  id是方法名  parameterType是参数类型-->
+    <insert id="add" parameterType="test.entity.Info">
+        insert into info(name,age)values(#{name},#{age})
+    </insert>
+
+    <update id="update" parameterType="test.entity.Info">
+        update info
+       set age=#{age}
+
+        where name=#{name}
+    </update>
+
+    <delete id="delete" parameterType="test.entity.Info">
+        delete from info where name=#{name}
+    </delete>
+
+    <select id="selectall" parameterType="test.entity.Info" resultMap="infoMap">
+        select * from info
+    </select>
+
+    <select id="selectbyname" parameterType="test.entity.Info"  resultMap="infoMap" >
+        select * from info as a join order_info as b on a.name=b.name
+            <where>
+        <if test="name!=null">
+            and a.name=#{name}
+        </if>
+            </where>
+
+    </select>
+
+
+     <select id="selectbyAge" parameterType="java.util.List" resultMap="infoMap">
+        select * from info
+            <where>
+                age in
+                <foreach collection="age" item="Age" open="(" close=")" separator=",">
+                    #{Age}
+                </foreach>
+            </where>
+    </select>
+
+</mapper>

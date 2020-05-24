@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <base th:href="${#request.getContextPath()}+'/'">
+</head>
+<body>
+<form action="/user/register" method="post">
+    <table>
+        <tr>
+            <td>名称</td>
+            <td><input type="text" name="pet_name"></td>
+        </tr>
+        <tr>
+            <td>类型</td>
+            <td><input type="text" name="pet_type"></td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td><input type="text" name="pet_age"></td>
+        </tr>
+        <tr>
+            <td>注册号</td>
+            <td><input type="text" name="pet_number" id="num"></td>
+            <td><span th:text="${error}" id="msg" style="color: red;font-size: 10px"></span></td>
+        </tr>
+<!--        <tr>-->
+
+<!--            <td>-->
+<!--                <input type="hidden" name="img"  id="photoUrl"/>-->
+<!--                <input type="file" name="logoFile" id="logoFile" οnchange="setImg(this);">-->
+<!--                <span><img id="photourlShow" src="" width="300" height="197"/></span>-->
+<!--            </td>-->
+<!--        </tr>-->
+        <tr>
+
+            <td><input type="submit" value="保存"></td>
+        </tr>
+    </table>
+</form>
+<script src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $("[name=pet_number]:text").blur(
+        function () {
+            var number=document.getElementById("num").value;
+            $.ajax({
+               url:"http://localhost:8080/user/checkNum",
+               type:"post",
+               data:{pet_number:number},
+               async:true,
+               success:function (result) {
+                   if (result == true){
+                       $("#msg").text("注册码已存在");
+
+                   }else{
+                       $("#msg").text("注册码可以使用");
+                   }
+
+               }
+            });
+        }
+
+    )
+</script>
+</body>
+</html>

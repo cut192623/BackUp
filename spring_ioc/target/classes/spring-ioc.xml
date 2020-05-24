@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <!--一个bean相当于一个对象，id相当于对象名，class相当于对象的类,id是唯一的 -->
+    <bean id="cpu" class="szx.ioc.IAMDCpu" />
+    <bean id="memory" class="szx.ioc.ISumsung"/>
+    <bean id="computer" class="szx.ioc.Computer" autowire="byName" >
+        <!---配置属性，name是属性名称  ref是注入的对象的引用  相当于把id=cpu的对象注入到computer对象中的cpu中 value用于注入自定义的变量，而非对象-->
+        <!--<property name="cpu" ref="cpu" />
+        <property name="memory" ref="memory" />
+        <property name="name" value="AUSA " />-->
+        <!--<constructor-arg name="cpu" ref="cpu"/>
+        <constructor-arg name="memory" ref="memory"/>
+        <constructor-arg name="name" value="Mac "/>-->
+    </bean>
+</beans>

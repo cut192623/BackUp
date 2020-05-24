@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>web.xml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000000; font-style: italic;}
+.s1 { color: #0000ff; font-weight: bold;}
+.s2 { color: #000000;}
+.s3 { color: #008000; font-weight: bold;}
+.s4 { color: #000000;}
+.s5 { color: #000080; font-weight: bold;}
+.s6 { color: #000000;}
+.s7 { color: #808080; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+web.xml</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;?</span><span class="s1">xml version</span><span class="s3">=&quot;1.0&quot; </span><span class="s1">encoding</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s0">?&gt;</span>
+&lt;<span class="s5">web-app </span><span class="s1">xmlns:xsi</span><span class="s3">=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="s1">xmlns</span><span class="s3">=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span>
+         <span class="s1">xsi:schemaLocation</span><span class="s3">=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span>
+         <span class="s1">id</span><span class="s3">=&quot;WebApp_ID&quot; </span><span class="s1">version</span><span class="s3">=&quot;3.1&quot;</span>&gt;
+  &lt;<span class="s5">display-name</span>&gt;Archetype Created Web Application&lt;/<span class="s5">display-name</span>&gt;
+  <span class="s7">&lt;!--配置前端控制器--&gt;</span>
+  &lt;<span class="s5">servlet</span>&gt;
+    &lt;<span class="s5">servlet-name</span>&gt;dipatcherServlet&lt;/<span class="s5">servlet-name</span>&gt;
+    &lt;<span class="s5">servlet-class</span>&gt;org.springframework.web.servlet.DispatcherServlet&lt;/<span class="s5">servlet-class</span>&gt;
+    &lt;<span class="s5">init-param</span>&gt;
+      <span class="s7">&lt;!--SpringMVC配置文件的路径--&gt;</span>
+      &lt;<span class="s5">param-name</span>&gt;contextConfigLocation&lt;/<span class="s5">param-name</span>&gt;
+      &lt;<span class="s5">param-value</span>&gt;classpath:spring_mvc.xml&lt;/<span class="s5">param-value</span>&gt;
+    &lt;/<span class="s5">init-param</span>&gt;
+    <span class="s7">&lt;!--优先启动该Servlet--&gt;</span>
+    &lt;<span class="s5">load-on-startup</span>&gt;1&lt;/<span class="s5">load-on-startup</span>&gt;
+  &lt;/<span class="s5">servlet</span>&gt;
+  <span class="s7">&lt;!--配置映射，/代表项目中的所有资源--&gt;</span>
+  &lt;<span class="s5">servlet-mapping</span>&gt;
+    &lt;<span class="s5">servlet-name</span>&gt;dipatcherServlet&lt;/<span class="s5">servlet-name</span>&gt;
+    &lt;<span class="s5">url-pattern</span>&gt;/&lt;/<span class="s5">url-pattern</span>&gt;
+  &lt;/<span class="s5">servlet-mapping</span>&gt;
+&lt;/<span class="s5">web-app</span>&gt;
+</pre>
+</body>
+</html>

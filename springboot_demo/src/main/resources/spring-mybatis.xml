@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--配置数据源 C3P0-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--jdbc连接属性-->
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/bookdb?serverTimezone=CST&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="user" value="root"/>
+        <property name="password" value="root"/>
+        <!--配置了最大连接数，最小连接数和初始连接数-->
+        <property name="maxPoolSize" value="100"/>
+        <property name="minPoolSize" value="10"/>
+        <property name="initialPoolSize" value="10"/>
+    </bean>
+    <!--配置会话工厂-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--配置数据源属性-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--配置映射文件的位置 *通配符-->
+        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml"/>
+        <!--配置实体类的包名-->
+        <property name="typeAliasesPackage" value="com.hopu.springboot_demo.entity"/>
+    </bean>
+    <!--配置映射接口的扫描器，通过Spring扫描接口并生成实现代理对象，存入IOC容器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--配置会话工厂的名称-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--配置扫描接口所在的包-->
+        <property name="basePackage" value="com.hopu.springboot_demo.dao"/>
+    </bean>
+    <!--配置事务管理器-->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--配置数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--配置启动声明式事务-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

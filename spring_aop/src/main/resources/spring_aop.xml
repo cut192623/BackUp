@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+<!--        配置对包的扫描-->
+    <context:component-scan base-package="spring_aop"/>
+<!--    配置一个通知对象-->
+    <bean id="logAdvise" class="spring_aop.LogAdvise"/>
+<!--    配置AOP-->
+    <aop:config>
+<!--        配置切入点  expression是表达式   excution（返回值类型  包 类 方法名（参数类型））-->
+<!--        可以使用*作为通配符   ..作为参数通配符-->
+        <aop:pointcut id="pc" expression="execution(* spring_aop.test.service.*ServiceImpl.*(..))"/>
+<!--   配置切面-->
+   <aop:aspect id="aspect" ref="logAdvise">
+<!--       配置各种通知 method是通知方法 pointcut——ref是切入点的引用-->
+       <aop:before method="prelog" pointcut-ref="pc"/>
+       <aop:after method="afterlog" pointcut-ref="pc"/>
+       <aop:around method="aroundlog" pointcut-ref="pc"/>
+       <aop:after-throwing method="throwlog" pointcut-ref="pc"/>
+       <aop:after-returning method="returnlog" pointcut-ref="pc"/>
+   </aop:aspect>
+    </aop:config>
+</beans>

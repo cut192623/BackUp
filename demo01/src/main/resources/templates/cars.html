@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>cars</title>
+</head>
+<body>
+<table width="80%" border="1px solid">
+    <tr>
+        <th>编号</th>
+        <th>图片</th>
+        <th>名称</th>
+        <th>价格</th>
+        <th>数量</th>
+
+    </tr>
+    <tr th:each="car:${cars}">
+        <td class="carId" th:text="${car.carId}"></td>
+        <td>
+           <img th:src="'img/'+${car.carImg}" style="width: 50px" height="40px">
+        </td>
+        <td th:text="${car.carBrand}"></td>
+        <td th:text="${car.carPrice}"></td>
+        <td class="carNum" th:text="${car.carNum}"></td>
+        <td>
+            <button>Buy</button>
+        </td>
+    </tr>
+</table>
+<script src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(":button").click(function(){
+      var Id= $(this).parent().parent().find(".carId").text();
+      var Num= $(this).parent().parent().find(".carNum").text();
+        if (parseInt(Num)==0){
+            alert("库存不足，无法购买");
+            return;
+        }
+        var t=$(this);
+        $.get("http://localhost:8080/buy?carId="+Id,function (resp) {
+                if(resp=="success"){
+                   t.parent().parent().find(".carNum").text(Num-1);
+                    alert("success")
+                }
+                else{
+
+                    alert("failed")
+                }
+        });
+    });
+</script>
+</body>
+</html>

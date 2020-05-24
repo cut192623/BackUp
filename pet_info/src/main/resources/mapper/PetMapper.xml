@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置接口的映射，namespace命名空间设置为包名+接口名-->
+<mapper namespace="szx.pet_info.dao.PetMapper">
+    <resultMap id="resultMap" type="szx.pet_info.entity.Pet">
+        <id column="pet_id" jdbcType="INTEGER" property="petId"/>
+        <result column="pet_name" jdbcType="VARCHAR" property="petName"/>
+        <result column="pet_type" jdbcType="VARCHAR" property="petType"/>
+        <result column="pet_age" jdbcType="INTEGER" property="petAge"/>
+        <result column="pet_number" jdbcType="VARCHAR" property="petNumber"/>
+        <result column="pet_img" jdbcType="VARCHAR" property="petImg"/>
+    </resultMap>
+<select id="selectAllInfo" resultType="java.util.ArrayList" resultMap="resultMap">
+    select * from tb_pet
+</select>
+    <select id="selectByNum" resultType="Pet" resultMap="resultMap">
+        select * from tb_pet where pet_number=#{number}
+    </select>
+    <insert id="addPet" parameterType="Pet">
+
+    </insert>
+</mapper>
