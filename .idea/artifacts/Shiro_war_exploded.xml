@@ -1,0 +1,50 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Shiro:war exploded">
+    <output-path>$PROJECT_DIR$/Shiro/target/Shiro</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>Shiro</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Shiro" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.5.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-lang:1.5.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.26" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-cache:1.5.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-hash:1.5.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-core:1.5.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-cipher:1.5.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-config-core:1.5.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-config-ogdl:1.5.2" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.4" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-event:1.5.2" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.2" />
+          <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.11" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.15" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter:5.7.0-M1" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-api:5.7.0-M1" />
+          <element id="library" level="project" name="Maven: org.apiguardian:apiguardian-api:1.1.0" />
+          <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.2.0" />
+          <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-commons:1.7.0-M1" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-params:5.7.0-M1" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.0-M1" />
+          <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.7.0-M1" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Shiro/target/Shiro/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="Shiro/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pet_info" />
+        <module name="springboot_demo" />
+        <module name="car-shop" />
+        <module name="Shiro" />
+        <module name="test" />
+        <module name="spring_ioc" />
+        <module name="car_shop" />
+        <module name="demo01" />
+        <module name="Test01" />
+        <module name="SSM" />
+        <module name="spring_mvc" />
+        <module name="wedding" />
+        <module name="MyBatis" />
+        <module name="spring_aop" />
+        <module name="phone_admin" />
+        <module name="phone_admin (1)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="car-shop" target="1.8" />
+      <module name="car_shop" target="1.8" />
+      <module name="demo01" target="1.8" />
+      <module name="MyBatis" target="1.7" />
+      <module name="pet_info" target="1.8" />
+      <module name="phone_admin" target="1.8" />
+      <module name="phone_admin (1)" target="1.8" />
+      <module name="Shiro" target="1.7" />
+      <module name="spring_aop" target="1.7" />
+      <module name="spring_ioc" target="8" />
+      <module name="spring_mvc" target="1.7" />
+      <module name="springboot_demo" target="1.8" />
+      <module name="SSM" target="1.7" />
+      <module name="test" target="1.7" />
+      <module name="Test01" target="8" />
+      <module name="wedding" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="car-shop" options="-parameters" />
+      <module name="car_shop" options="-parameters" />
+      <module name="demo01" options="-parameters" />
+      <module name="pet_info" options="-parameters" />
+      <module name="phone_admin" options="-parameters" />
+      <module name="phone_admin (1)" options="-parameters" />
+      <module name="springboot_demo" options="-parameters" />
+      <module name="wedding" options="-parameters" />
+    </option>
+  </component>
+</project>

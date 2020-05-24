@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="test01@localhost" uuid="6ba25ad2-281f-4faf-805e-c3a8172986bd">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/test01</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="bookdb@localhost" uuid="d894bdd5-93ec-43ff-942b-a51d5d585927">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/bookdb</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="phonedb@localhost" uuid="5fe9d0d0-7461-42c2-bc87-e5952e7400e2">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/phonedb</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="car_shop" uuid="c2b4196d-3f24-4de0-9471-ec16711dced4">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/cardb</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="wedding" uuid="a27cdfe2-1746-45da-9c2b-4eec4e5cfa76">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/wedding</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="pet_info" uuid="28198efc-9ad2-49a5-a0be-cac7c650412c">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/petinfo</jdbc-url>
+    </data-source>
+  </component>
+</project>
