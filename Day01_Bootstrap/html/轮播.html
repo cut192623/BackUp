@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+       #box{
+           margin: auto;
+           border: red solid 2px;
+           height: 640px;
+           width: 1000px;
+           position: relative;
+       }
+        .box-img{
+            position: absolute;
+        }
+        .box-img img{
+            width:1000px;
+            height: 640px;
+        }
+        .left{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            top: 50%;
+        }
+        .right{
+            position: absolute;
+            background-color: #fff;
+            width: 20px;
+            height: 20px;
+            right: 0;
+            top: 50%;
+
+        }
+        li{
+            list-style: none;
+            background-color: #000;
+            float: left;
+            margin-left: 10px;
+            width: 18px;
+            height: 18px;
+            border-radius:100%
+        }
+        ul{
+            position: absolute;
+            padding: 0;
+            margin: 0;
+        }
+        .nav{
+            position: absolute;
+            height: 20px;
+            width: 100px;
+            bottom: -30px;
+            right: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="box-img" id="1"><img src="../img/1.png"></div>
+    <div class="box-img" id="2"><img src="../img/2.png"></div>
+    <div class="box-img" id="3"><img src="../img/3.png"></div>
+    <div class="left" ><</div>
+    <div class="right" >></div>
+    <div class="nav">
+        <ul id = "wrapper">
+            <li data-id="0"></li>
+            <li data-id="1"></li>
+            <li data-id="2"></li>
+        </ul>
+    </div>
+
+</div>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    $(function () {
+        var index = 0;
+        const wrapper = document.getElementById("wrapper");
+        setInterval(function () {
+            if (index == $(".box-img").length - 1) {
+                index = 0;
+                $(".box-img").css("display", "none");
+                $(".box-img").eq(index).css("display", "block");
+                $(".nav li").css("background-color", "black");
+                $(".nav li").eq(index).css("background-color", "red");
+                //console.log(index);
+            } else {
+                index++;
+                $(".box-img").css("display", "none");
+                $(".box-img").eq(index).css("display", "block");
+                $(".nav li").css("background-color", "black");
+                $(".nav li").eq(index).css("background-color", "red");
+                //console.log(index);
+            }
+            $(".left").click(
+                function () {
+                    if (index == 0) {
+                        index = $(".box-img").length - 1;
+                        $(".box-img").css("display", "none");
+                        $(".box-img").eq(index).css("display", "block");
+                        $(".nav li").css("background-color", "black");
+                        $(".nav li").eq(index).css("background-color", "red");
+                    } else {
+                        index--;
+                        $(".box-img").css("display", "none");
+                        $(".box-img").eq(index).css("display", "block");
+                        $(".nav li").css("background-color", "black");
+                        $(".nav li").eq(index).css("background-color", "red");
+                    }
+                })
+            $(".right").click(
+                function () {
+                    if (index == $(".box-img").length - 1) {
+                        index = 0;
+                        $(".box-img").css("display", "none");
+                        $(".box-img").eq(index).css("display", "block");
+                        $(".nav li").css("background-color", "black");
+                        $(".nav li").eq(index).css("background-color", "red");
+                    } else {
+                        index++;
+                        $(".box-img").css("display", "none");
+                        $(".box-img").eq(index).css("display", "block");
+                        $(".nav li").css("background-color", "black");
+                        $(".nav li").eq(index).css("background-color", "red");
+                    }
+                }
+            )
+            wrapper.addEventListener("click", (e) => {
+                const target = e.target;
+                index = target.getAttribute("data-id")
+                $(".box-img").css("display", "none");
+                $(".box-img").eq(index).css("display", "block");
+                $(".nav li").css("background-color", "black");
+                $(".nav li").eq(index).css("background-color", "red");
+                console.log(index);
+            })
+        }, 2000)
+    })
+
+
+
+</script>
+</body>
+</html>
